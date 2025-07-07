@@ -32,43 +32,62 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen p-6  mx-auto  bg-gradient-to-br from-gray to-blue-100 min-h-screen animate-gradient bg-[linear-gradient(250deg,_#ff2eb3,_#68d6ce,_#9a67ce)] bg-[length:400%_400%]">
-      <div>
-      <h1 className=" text-8xl font-bold mb-4">HR Login</h1>
-      <br/>
-      {error && <p className="text-red-500">{error}</p>}
-      <br/>
-      <form onSubmit={handleSubmit} className="space-y-4">
-       
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          required
-          className="w-80 border p-2 rounded"
-        />
-        <br/>
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-          required
-          className="w-80 border p-2 rounded"
-        />
-                <br/>
+    <div className="flex items-center justify-center min-h-screen px-4 bg-[linear-gradient(250deg,_#ff2eb3,_#68d6ce,_#9a67ce)] bg-[length:400%_400%] animate-gradient">
+  <div className="w-full max-w-md p-8 bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20">
 
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded w-50">
-          Login
-        </button>
-      </form>
-      <p className="mt-4 text-sm text-gray-600">
-        Don't have an account? <a href="/signup" className="text-blue-600 underline">Signup</a>
+    {/* Heading */}
+    <h1 className="text-5xl font-extrabold text-center text-white drop-shadow-md mb-6 tracking-tight">
+      HR Login
+    </h1>
+
+    {/* Error */}
+    {error && (
+      <p className="text-red-600 text-center font-semibold mb-4 bg-white/40 p-2 rounded-lg shadow-inner">
+        {error}
       </p>
-      </div>
-    </div>
-  );
+    )}
+
+    {/* Form */}
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Email */}
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        onChange={handleChange}
+        required
+        className="w-full px-5 py-3 bg-white/80 text-gray-800 placeholder-gray-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-inner transition"
+      />
+
+      {/* Password */}
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        onChange={handleChange}
+        required
+        className="w-full px-5 py-3 bg-white/80 text-gray-800 placeholder-gray-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-inner transition"
+      />
+
+      {/* Submit */}
+      <button
+        type="submit"
+        className="w-full py-3 font-bold text-white rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-blue-500 transition-all duration-300 shadow-lg hover:scale-[1.02]"
+      >
+        Login
+      </button>
+    </form>
+
+    {/* Signup */}
+    <p className="mt-6 text-center text-sm text-white/90">
+      Don&apos;t have an account?{' '}
+      <a href="/signup" className="text-white underline font-semibold hover:text-yellow-200 transition">
+        Signup
+      </a>
+    </p>
+  </div>
+</div>
+  )
 };
 
 export default Login;

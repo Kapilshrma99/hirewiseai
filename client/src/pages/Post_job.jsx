@@ -74,54 +74,103 @@ const PostJob = () => {
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">📢 Post a New Job</h1>
+   <div className="pt-40 min-h-screen flex items-center justify-center px-4 bg-[linear-gradient(250deg,_#ff7eb3,_#65d6ce,_#6a67ce)] bg-[length:400%_400%] animate-gradient py-10">
+  <div className="w-full max-w-3xl bg-white/30 backdrop-blur-md p-8 sm:p-10 rounded-3xl shadow-2xl border border-white/20">
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input type="text" name="role" placeholder="Job Role" className="w-full p-2 border rounded" onChange={handleChange} required />
-        <input type="text" name="company" placeholder="Company Name" className="w-full p-2 border rounded" onChange={handleChange} required />
-        <input type="text" name="location" placeholder="Job Location" className="w-full p-2 border rounded" onChange={handleChange} />
-        <input type="text" name="salaryRange" placeholder="Salary Range (e.g. ₹30K - ₹50K)" className="w-full p-2 border rounded" onChange={handleChange} />
-        
-        <select name="jobType" className="w-full p-2 border rounded" onChange={handleChange}>
-          <option>Full-Time</option>
-          <option>Internship</option>
-          <option>Part-Time</option>
-        </select>
+    <h1 className="text-3xl font-extrabold text-center text-white drop-shadow-md mb-6">
+      📢 Post a New Job
+    </h1>
 
-        <input type="text" name="skills" placeholder="Required Skills (comma separated)" className="w-full p-2 border rounded" onChange={handleChange} required />
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <input
+        type="text"
+        name="role"
+        placeholder="Job Role"
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-3 bg-white/80 text-gray-800 placeholder-gray-500 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+      />
 
-        <button type="button" onClick={generateDescription} className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
-          {aiLoading ? 'Generating...' : '✨ Generate Description'}
-        </button>
+      <input
+        type="text"
+        name="company"
+        placeholder="Company Name"
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-3 bg-white/80 text-gray-800 placeholder-gray-500 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+      />
 
-        <textarea
-          name="description"
-          placeholder="Job Description"
-          rows={6}
-          value={form.description}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          required
-        ></textarea>
+      <input
+        type="text"
+        name="location"
+        placeholder="Job Location"
+        onChange={handleChange}
+        className="w-full px-4 py-3 bg-white/80 text-gray-800 placeholder-gray-500 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+      />
 
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-          disabled={loading}
-        >
-          {loading ? 'Posting...' : '📤 Post Job'}
-        </button>
-      </form>
+      <input
+        type="text"
+        name="salaryRange"
+        placeholder="Salary Range (e.g. ₹30K - ₹50K)"
+        onChange={handleChange}
+        className="w-full px-4 py-3 bg-white/80 text-gray-800 placeholder-gray-500 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+      />
 
-      {jobId && (
-        <div className="mt-6 bg-green-100 text-black border border-green-300 p-4 rounded">
-          ✅ Job posted! ID: <strong>{jobId}</strong><br />
-          Share Apply Link: <code>{apiUrl}/apply/{jobId}</code>
-        </div>
-      )}
-    </div>
-  );
+      <select
+        name="jobType"
+        onChange={handleChange}
+        className="w-full px-4 py-3 bg-white/80 text-gray-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+      >
+        <option>Full-Time</option>
+        <option>Internship</option>
+        <option>Part-Time</option>
+      </select>
+
+      <input
+        type="text"
+        name="skills"
+        placeholder="Required Skills (comma separated)"
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-3 bg-white/80 text-gray-800 placeholder-gray-500 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+      />
+
+      <button
+        type="button"
+        onClick={generateDescription}
+        className="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold py-3 rounded-xl hover:from-pink-500 hover:to-purple-600 transition-all duration-300 shadow-md hover:scale-[1.02]"
+      >
+        {aiLoading ? 'Generating...' : '✨ Generate Description'}
+      </button>
+
+      <textarea
+        name="description"
+        placeholder="Job Description"
+        rows={6}
+        value={form.description}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-3 bg-white/80 text-gray-800 placeholder-gray-500 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400 transition resize-none"
+      ></textarea>
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold py-3 rounded-xl hover:from-green-500 hover:to-blue-600 transition-all duration-300 shadow-md hover:scale-[1.02]"
+      >
+        {loading ? 'Posting...' : '📤 Post Job'}
+      </button>
+    </form>
+
+    {jobId && (
+      <div className="mt-6 bg-green-200/60 border border-green-400 text-green-900 p-4 rounded-xl text-sm shadow-md">
+        ✅ <strong>Job posted!</strong> ID: <span className="font-mono">{jobId}</span><br />
+        📎 <strong>Apply Link:</strong> <code className="break-all">{`${apiUrl}/apply/${jobId}`}</code>
+      </div>
+    )}
+  </div>
+</div>
+  )
 };
 
 export default PostJob;

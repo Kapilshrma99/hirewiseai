@@ -32,60 +32,83 @@ const navigate=useNavigate()
   return (
     <>
     
-    <div className="p-6 max-w-6xl ">
-    <h1 className="text-2xl font-bold mb-4 mx-auto">HR Dashboard</h1>  
+    <div className="pt-40 min-h-screen px-4 py-12 bg-gradient-to-br from-[#ff7eb3] via-[#65d6ce] to-[#6a67ce] bg-[length:400%_400%] animate-gradient">
+  <div className="max-w-7xl mx-auto">
 
-      {jobs.length === 0 ? (
-        <p>No jobs found.</p>
-      ) : (
-        jobs.map((job) => (
+    <h1 className="text-5xl font-extrabold text-center text-white drop-shadow-lg mb-14">💼 HR Dashboard</h1>
+
+    {jobs.length === 0 ? (
+      <p className="text-white text-center text-xl italic">No jobs found.</p>
+    ) : (
+      <div className="space-y-12">
+        {jobs.map((job) => (
           <div
             key={job._id}
-            className="mb-6 p-4 border rounded-xl shadow bg-blue-800"
+            className="bg-white/30 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl p-8 transition-transform duration-300 hover:scale-[1.01]"
           >
-            <h2 className="text-xl font-semibold">{job.role} @ {job.company}</h2>
-            <p className="text-sm text-gray-500">Salary: {job.salaryRange}</p>
+            {/* Job Header */}
+            <div className="mb-6">
+              <h2 className="text-3xl font-bold text-blue-900">{job.role}</h2>
+              <p className="text-lg text-gray-800">🏢 {job.company}</p>
+              <p className="text-gray-700 mt-1">💰 <span className="font-semibold">{job.salaryRange || 'N/A'}</span></p>
+            </div>
 
-            <div className="mt-4">
-              <h3 className="font-semibold mb-2">Candidates:</h3>
+            {/* Candidates */}
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">👥 Candidates</h3>
+
               {job.candidates.length === 0 ? (
-                <p className="text-gray-600">No candidates applied.</p>
+                <p className="text-gray-700 italic">No candidates have applied for this job.</p>
               ) : (
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="p-2 border bg-blue-300 text-black">Name</th>
-                      
-                      <th className="p-2 border bg-blue-300 text-black">Email</th>
-                      <th className="p-2 border bg-blue-300 text-black">Score</th>
-                      <th className="p-2 border bg-blue-300 text-black">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {job.candidates.map((c) => (
-                      <tr key={c._id}>
-                        <td className="p-2 border">{c.name}</td>
-                        <td className="p-2 border">{c.email}</td>
-                        <td className="p-2 border">{c.testScore || 'N/A'}%</td>
-                        <td className="p-2 border">
-                          {c.passedTest === true ? (
-                            <span className="text-green-600 font-bold">✅ Pass</span>
-                          ) : c.passedTest === false ? (
-                            <span className="text-red-600 font-bold">❌ Fail</span>
-                          ) : (
-                            <span className="text-gray-500">⏳ Not Attempted</span>
-                          )}
-                        </td>
+                <div className="overflow-x-auto rounded-xl border border-gray-300 shadow-md">
+                  <table className="min-w-full text-sm text-gray-800 bg-white rounded-xl">
+                    <thead>
+                      <tr className="bg-blue-200 text-blue-900">
+                        <th className="p-3 text-left">👤 Name</th>
+                        <th className="p-3 text-left">✉️ Email</th>
+                        <th className="p-3 text-left">📊 Score</th>
+                        <th className="p-3 text-left">✅ Status</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {job.candidates.map((c, idx) => (
+                        <tr
+                          key={c._id}
+                          className={idx % 2 === 0 ? 'bg-white' : 'bg-blue-50'}
+                        >
+                          <td className="p-3">{c.name}</td>
+                          <td className="p-3">{c.email}</td>
+                          <td className="p-3">{c.testScore != null ? `${c.testScore}%` : 'N/A'}</td>
+                          <td className="p-3">
+                            {c.passedTest === true ? (
+                              <span className="inline-flex items-center px-3 py-1 rounded-full text-green-700 bg-green-100 font-semibold text-sm shadow-sm">
+                                ✅ Passed
+                              </span>
+                            ) : c.passedTest === false ? (
+                              <span className="inline-flex items-center px-3 py-1 rounded-full text-red-700 bg-red-100 font-semibold text-sm shadow-sm">
+                                ❌ Failed
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center px-3 py-1 rounded-full text-gray-700 bg-gray-200 font-medium text-sm shadow-sm">
+                                ⏳ Not Attempted
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               )}
             </div>
           </div>
-        ))
-      )}
-    </div>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
+
+
     </>
   );
 };

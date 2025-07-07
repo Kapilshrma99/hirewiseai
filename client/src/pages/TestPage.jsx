@@ -58,43 +58,49 @@ const TestPage=()=>{
     return(
 
         <>
-        < div className='p-6 max-w-3xl mx-auto'>
-            <h1 className="text-2xl font-bold mb-4">Test</h1>
+        <div className="min-h-screen bg-gradient-to-br from-[#ff7eb3] via-[#65d6ce] to-[#6a67ce] bg-[length:400%_400%] animate-gradient px-4 py-10">
+  <div className="p-6 max-w-3xl mx-auto bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20">
+    
+    <h1 className="text-4xl font-extrabold text-center text-white drop-shadow-md mb-8">🧠 Take the Test</h1>
 
-                {
-                    questions.map((q,idx)=>(
-                         <div key={idx} className="mb-6 p-4 border rounded-xl shadow">
-                            <p className="font-semibold mb-2">{idx+1}. {q.question} </p>
-                              {
-                                q.options.map((option,oIdx)=>(
-                                    <label key={oIdx} className="block mb-1">
-                                          <input
-                                            type="radio"
-                                            name={`question-${idx}`}
-                                            value={option}
-                                            checked={answers[idx] === option}
-                                            onChange={() => handleOptionChange(idx, option)}
-                                            className="mr-2"
-                                          />
-                                            {option}
+    {questions.map((q, idx) => (
+      <div key={idx} className="mb-8 p-6 rounded-xl bg-white/90 shadow-lg border border-gray-300">
+        <p className="font-semibold text-lg mb-4 text-blue-900">{idx + 1}. {q.question}</p>
+        
+        {q.options.map((option, oIdx) => (
+          <label
+            key={oIdx}
+            className={`flex items-center p-3 mb-2 rounded-lg cursor-pointer border ${
+              answers[idx] === option
+                ? 'bg-blue-100 border-blue-400 font-semibold text-blue-900'
+                : 'bg-gray-100 hover:bg-gray-200'
+            }`}
+          >
+            <input
+              type="radio"
+              name={`question-${idx}`}
+              value={option}
+              checked={answers[idx] === option}
+              onChange={() => handleOptionChange(idx, option)}
+              className="mr-3 accent-blue-600"
+            />
+            {option}
+          </label>
+        ))}
+      </div>
+    ))}
 
-                                    </label>
-                                ))
-                            }
-
-                         </div>   
-
-                    ))
-                
-                
-                }
-    <button
+    <div className="text-center mt-10">
+      <button
         onClick={handleSubmit}
-        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+        className="px-6 py-3 text-lg font-bold text-white bg-gradient-to-r from-blue-600 to-purple-500 rounded-xl shadow-md hover:from-purple-500 hover:to-blue-600 transition-all duration-300 hover:scale-105"
       >
-        Submit Test
+        🚀 Submit Test
       </button>
-        </div>
+    </div>
+  </div>
+</div>
+
         </>
     )
 
