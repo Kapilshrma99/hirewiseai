@@ -24,10 +24,8 @@ const Navbar = () => {
   // };
   // bg-white/70 bg-gradient-to-r from-blue-100 to-blue-300
   return (
-     <nav className="fixed top-4 left-1/2 transform -translate-x-1/2  backdrop-blur-md border border-white/30
- shadow-md  p-4 rounded-full max-w-[95%] md:max-w-3xl w-full bg-transparent bg-blue/30 z-50
-">
-      <div className="max-w-6xl mx-auto flex justify-between items-center h-24 ">
+     <nav className="w-full  bg-white">
+      <div className="w-4/5 border-b-2  mx-auto flex justify-between items-center aspect-[16] ">
         {/* Logo */}
         <h1 className="text-2xl font-extrabold text-blue-800">
           <Link to="/">HireWise AI</Link>

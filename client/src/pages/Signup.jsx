@@ -26,7 +26,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="pt-30 min-h-screen flex items-center justify-center bg-[linear-gradient(250deg,_#ff2eb3,_#68d6ce,_#9a67ce)] bg-[length:400%_400%] animate-gradient px-4">
+    <div className="pt-30 min-h-screen flex items-center justify-center  px-4">
   <div className="w-full max-w-md p-8 bg-white/30 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl">
 
     <h1 className="text-4xl font-extrabold text-center text-white drop-shadow-md mb-6">

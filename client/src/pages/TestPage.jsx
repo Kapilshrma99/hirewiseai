@@ -58,7 +58,7 @@ const TestPage=()=>{
     return(
 
         <>
-        <div className="min-h-screen bg-gradient-to-br from-[#ff7eb3] via-[#65d6ce] to-[#6a67ce] bg-[length:400%_400%] animate-gradient px-4 py-10">
+        <div className="min-h-screen  px-4 py-10">
   <div className="p-6 max-w-3xl mx-auto bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20">
     
     <h1 className="text-4xl font-extrabold text-center text-white drop-shadow-md mb-8">🧠 Take the Test</h1>

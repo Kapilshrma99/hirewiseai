@@ -8,6 +8,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Partner from './pages/partner';
+import Aboutus from './pages/Aboutus';
+import Solution from './pages/Solution';
 
 
 
@@ -24,6 +27,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      <Partner/>
+      <Aboutus/>
+      <Solution/>
       <Footer/>
     </BrowserRouter>
   );

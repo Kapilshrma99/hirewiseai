@@ -32,7 +32,7 @@ const navigate=useNavigate()
   return (
     <>
     
-    <div className="pt-40 min-h-screen px-4 py-12 bg-gradient-to-br from-[#ff7eb3] via-[#65d6ce] to-[#6a67ce] bg-[length:400%_400%] animate-gradient">
+    <div className="pt-40 min-h-screen px-4 py-12 ">
   <div className="max-w-7xl mx-auto">
 
     <h1 className="text-5xl font-extrabold text-center text-white drop-shadow-lg mb-14">💼 HR Dashboard</h1>

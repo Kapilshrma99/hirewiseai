@@ -32,7 +32,7 @@ const ApplyForm = () => {
   }
   
   return (
-<div className="min-h-screen flex items-center justify-center px-4 bg-[linear-gradient(250deg,_#ff7eb3,_#65d6ce,_#6a67ce)] bg-[length:400%_400%] animate-gradient">
+<div className="min-h-screen flex items-center justify-center px-4 ">
   <div className="w-full max-w-lg bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20 p-8 sm:p-10">
 
     <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-white drop-shadow-md mb-6">

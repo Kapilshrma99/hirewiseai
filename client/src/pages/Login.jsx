@@ -32,8 +32,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen px-4 bg-[linear-gradient(250deg,_#ff2eb3,_#68d6ce,_#9a67ce)] bg-[length:400%_400%] animate-gradient">
-  <div className="w-full max-w-md p-8 bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20">
+    <div className="flex items-center justify-center min-h-screen px-4 ">
+  <div className="w-full max-w-md p-8 bg-black/30 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20">
 
     {/* Heading */}
     <h1 className="text-5xl font-extrabold text-center text-white drop-shadow-md mb-6 tracking-tight">
