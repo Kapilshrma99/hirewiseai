@@ -75,7 +75,7 @@ const PostJob = () => {
 
   return (
    <div className="pt-40 min-h-screen flex items-center justify-center px-4  py-10">
-  <div className="w-full max-w-3xl bg-white/30 backdrop-blur-md p-8 sm:p-10 rounded-3xl shadow-2xl border border-white/20">
+  <div className="w-full max-w-3xl bg-black/30 backdrop-blur-md p-8 sm:p-10 rounded-3xl shadow-2xl border border-white/20">
 
     <h1 className="text-3xl font-extrabold text-center text-white drop-shadow-md mb-6">
       📢 Post a New Job

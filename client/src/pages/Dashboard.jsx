@@ -33,7 +33,7 @@ const navigate=useNavigate()
     <>
     
     <div className="pt-40 min-h-screen px-4 py-12 ">
-  <div className="max-w-7xl mx-auto bg-blue-300">
+  <div className="max-w-7xl mx-auto bg-blue-300 rounded-xl">
 
     <h1 className="text-5xl font-extrabold text-center text-white drop-shadow-lg mb-14">💼 HR Dashboard</h1>
 
