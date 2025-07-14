@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Partner from './pages/partner';
+import Partner from './pages/Partner';
 import Aboutus from './pages/Aboutus';
 import Solution from './pages/Solution';
 
